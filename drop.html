@@ -379,17 +379,29 @@ body {
 
       if (!confirmBuy) return;
 
-      // Mensaje premium para WhatsApp
-      const message = 
-`✨ *NUEVA SOLICITUD DE COMPRA – DROP COLLECTION* ✨
+     const message = 
+`✨💎 *NUEVA SOLICITUD DE COMPRA – DROP COLLECTION* 💎✨
 
-📦 *Producto:* ${product}
-💰 *Precio:* ${price}
-🧱 *Material:* ${material}
-📐 *Dimensiones:* ${size}
+🛍 *Producto seleccionado:*
+➡️ ${product}
 
-✅ Deseo confirmar este pedido.
-📍 Quedo atento(a) a información de pago y entrega.`;
+📌 *Detalles del producto*
+💰 Precio: ${price}
+🧱 Material: ${material}
+📐 Dimensiones: ${size}
+
+💳 *Métodos de pago disponibles:*
+✔ Efectivo
+✔ Transferencia bancaria
+
+🚚 *Horario de entrega:*
+🕗 De 8:00 a.m. a 5:00 p.m.
+
+🙋‍♀️ *Mensaje del cliente:*
+Hola, deseo confirmar la compra de este producto.
+Quedo atento(a) a la coordinación de pago y entrega.
+
+✨ ¡Gracias por su atención! ✨`;
 
       const whatsappURL =
         `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -401,6 +413,7 @@ body {
 </body>
 
 </html>
+
 
 
 
