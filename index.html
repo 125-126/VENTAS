@@ -72,6 +72,61 @@ footer { text-align:center; padding:20px 10px; font-size:0.85rem; }
 
 /* === ANIMACIÓN === */
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* Estilos generales del nav */
+nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+/* Icono hamburguesa */
+.menu-toggle {
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* Links del menú */
+.menu-links {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* Estilo botones cta */
+.menu-links .cta-buy {
+  background: var(--accent-gold);
+  color:#0c0c0c;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:10px;
+}
+
+/* === Responsive hamburguesa === */
+@media(max-width:768px) {
+  .menu-toggle { display:block; }
+  .menu-links {
+    display:none;        /* Oculto por defecto */
+    flex-direction:column;
+    width:100%;
+    background: var(--bg-dark);
+    margin-top:10px;
+    padding:10px;
+    border-radius:10px;
+  }
+  .menu-links a {
+    padding:10px;
+    border-bottom:1px solid #444;
+  }
+  .menu-links a:last-child { border-bottom:none; }
+  .menu-links.show { display:flex; } /* Clase para mostrar */
+}
+
+
+
 </style>
 </head>
 <body>
@@ -79,13 +134,18 @@ footer { text-align:center; padding:20px 10px; font-size:0.85rem; }
 <header>
   <div class="header-inner">
     <div class="brand"><h1>Joyería Elegante</h1></div>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#categorias">Categorías</a>
-      <a href="#productos">Productos</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#" class="cta-buy">Comprar</a>
-    </nav>
+<nav>
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Esto es el icono de hamburguesa -->
+  </div>
+  <div class="menu-links" id="menu-links">
+    <a href="#">Inicio</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#" class="cta-buy">Comprar</a>
+  </div>
+</nav>
   </div>
 </header>
 
@@ -207,10 +267,18 @@ footer { text-align:center; padding:20px 10px; font-size:0.85rem; }
   <a href="#">Facebook</a> | 
   <a href="#">WhatsApp</a>
 </footer>
+<script>
+const toggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu-links');
 
+toggle.addEventListener('click', () => {
+  menu.classList.toggle('show'); // Muestra u oculta el menú
+});
+</script>
 </body>
 
 </html>
+
 
 
 
