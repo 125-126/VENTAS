@@ -188,7 +188,77 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+/* ===================== */
+/* 📱 OPTIMIZACIÓN MÓVIL */
+/* ===================== */
 
+@media (max-width: 768px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  /* PRODUCTO DESTACADO */
+  .featured-product {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-product .featured-image {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .featured-product .featured-image img {
+    width: 80%;
+    max-width: 260px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .featured-product .featured-info {
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .featured-product .featured-info h2 {
+    font-size: 1.6em;
+  }
+
+  .featured-product .featured-info p {
+    font-size: 0.95em;
+  }
+
+  .btn-buy {
+    margin: 20px auto 0;
+    padding: 12px 28px;
+    font-size: 0.95em;
+  }
+
+  /* GRID DE PRODUCTOS */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .product-card img {
+    max-width: 220px;
+  }
+
+  .product-card h2 {
+    font-size: 1.2em;
+  }
+
+  .product-card p {
+    font-size: 0.9em;
+  }
+}
 
   </style>
 </head>
@@ -257,3 +327,4 @@ body {
 </body>
 
 </html>
+
