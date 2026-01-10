@@ -124,7 +124,55 @@ nav {
   .menu-links a:last-child { border-bottom:none; }
   .menu-links.show { display:flex; } /* Clase para mostrar */
 }
+/* Menú normal */
+.menu-links {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
 
+/* Botón hamburguesa */
+.menu-toggle {
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* === Responsive hamburguesa desde el lado derecho === */
+@media(max-width:768px) {
+  .menu-toggle { display:block; }
+
+  /* Menú oculto fuera de pantalla */
+  .menu-links {
+    position:fixed;
+    top:0;
+    right:-250px;       /* Fuera de la pantalla */
+    width:250px;
+    height:100%;
+    background: var(--bg-dark);
+    flex-direction:column;
+    padding:60px 20px;
+    gap:20px;
+    border-left:2px solid var(--accent-gold-light);
+    transition: right 0.3s ease;
+    z-index:999;
+  }
+
+  .menu-links a {
+    padding:10px 0;
+    font-size:1.1rem;
+    border-bottom:1px solid #444;
+    color:#fff;
+  }
+
+  .menu-links a:last-child { border-bottom:none; }
+
+  /* Clase para mostrar el menú */
+  .menu-links.show {
+    right:0;   /* Se desliza dentro de la pantalla */
+  }
+}
 
 
 </style>
@@ -136,7 +184,7 @@ nav {
     <div class="brand"><h1>Joyería Elegante</h1></div>
 <nav>
   <div class="menu-toggle" id="menu-toggle">
-    &#9776; <!-- Esto es el icono de hamburguesa -->
+    &#9776;
   </div>
   <div class="menu-links" id="menu-links">
     <a href="#">Inicio</a>
@@ -272,12 +320,13 @@ const toggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu-links');
 
 toggle.addEventListener('click', () => {
-  menu.classList.toggle('show'); // Muestra u oculta el menú
+  menu.classList.toggle('show');
 });
 </script>
 </body>
 
 </html>
+
 
 
 
