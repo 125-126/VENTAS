@@ -344,35 +344,55 @@ body {
   <script>
   const phoneNumber = "50379139408"; // WhatsApp El Salvador
 
-  document.querySelectorAll(".buy-btn").forEach(button => {
+  document.querySelectorAll(".btn-buy").forEach(button => {
     button.addEventListener("click", function (e) {
       e.preventDefault();
 
-      const product = this.dataset.product;
-      const price = this.dataset.price;
-      const material = this.dataset.material;
-      const size = this.dataset.size;
+      // Buscamos el contenedor del producto
+      const card = this.closest(".featured-info") || this.closest(".product-card");
 
+      // Extraemos información automáticamente
+      const product =
+        card.querySelector("h2")?.innerText || "Producto sin nombre";
+
+      const price =
+        [...card.querySelectorAll("p")]
+          .find(p => p.innerText.includes("Precio"))
+          ?.innerText.replace("Precio:", "").trim() || "No especificado";
+
+      const material =
+        [...card.querySelectorAll("p")]
+          .find(p => p.innerText.includes("Material"))
+          ?.innerText.replace("Material:", "").trim() || "No especificado";
+
+      const size =
+        [...card.querySelectorAll("p")]
+          .find(p => p.innerText.includes("Dimensiones"))
+          ?.innerText.replace("Dimensiones:", "").trim() || "No especificado";
+
+      // Confirmación
       const confirmBuy = confirm(
-        `¿Deseas confirmar la compra del siguiente producto?\n\n` +
-        `Producto: ${product}\n` +
-        `Precio: ${price}\n`
+        `¿Confirmas la compra?\n\n` +
+        `🛍 Producto: ${product}\n` +
+        `💰 Precio: ${price}`
       );
 
       if (!confirmBuy) return;
 
+      // Mensaje premium para WhatsApp
       const message = 
-`✨ *Nueva solicitud de compra – DROP COLLECTION* ✨
+`✨ *NUEVA SOLICITUD DE COMPRA – DROP COLLECTION* ✨
 
 📦 *Producto:* ${product}
 💰 *Precio:* ${price}
 🧱 *Material:* ${material}
 📐 *Dimensiones:* ${size}
 
-✅ Estoy interesado(a) en confirmar este pedido.
-📍 Quedo atento(a) a indicaciones de pago y entrega.`;
+✅ Deseo confirmar este pedido.
+📍 Quedo atento(a) a información de pago y entrega.`;
 
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      const whatsappURL =
+        `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappURL, "_blank");
     });
@@ -381,6 +401,7 @@ body {
 </body>
 
 </html>
+
 
 
 
