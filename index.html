@@ -173,7 +173,56 @@ nav {
     right:0;   /* Se desliza dentro de la pantalla */
   }
 }
+/* Botón hamburguesa siempre a la derecha */
+.header-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  position:relative;
+}
 
+/* Icono hamburguesa */
+.menu-toggle {
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* Menú deslizable desde la derecha */
+@media(max-width:768px) {
+  .menu-toggle { display:block; }
+
+  .menu-links {
+    position:fixed;
+    top:0;
+    right:-250px;       /* Fuera de pantalla */
+    width:250px;
+    height:100%;
+    background: var(--bg-dark);
+    flex-direction:column;
+    padding:60px 20px;
+    gap:20px;
+    border-left:2px solid var(--accent-gold-light);
+    transition: right 0.3s ease;
+    z-index:999;
+  }
+
+  .menu-links a {
+    padding:10px 0;
+    font-size:1.1rem;
+    border-bottom:1px solid #444;
+    color:#fff;
+  }
+
+  .menu-links a:last-child { border-bottom:none; }
+
+  /* Mostrar menú */
+  .menu-links.show {
+    right:0;
+  }
+}
 
 </style>
 </head>
@@ -319,13 +368,23 @@ nav {
 const toggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu-links');
 
-toggle.addEventListener('click', () => {
+// Abrir/cerrar al hacer clic en el botón
+toggle.addEventListener('click', (e) => {
   menu.classList.toggle('show');
+  e.stopPropagation(); // Evita que el clic se propague al documento
+});
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click', (e) => {
+  if(menu.classList.contains('show') && !menu.contains(e.target) && e.target !== toggle){
+    menu.classList.remove('show');
+  }
 });
 </script>
 </body>
 
 </html>
+
 
 
 
