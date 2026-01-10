@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Drop - Collares Dorados</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f8ecd4, #ffe7b3);
+      color: #333;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #bfa14f;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+      margin-bottom: 50px;
+    }
+
+    /* PRODUCTO DESTACADO */
+    .featured-product {
+      display: flex;
+      flex-wrap: nowrap; /* horizontal */
+      background-color: #fff8e7;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom: 60px;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    .featured-product .featured-image {
+      width: 50%; /* Imagen izquierda */
+    }
+
+    .featured-product .featured-image img {
+      width: 70%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .featured-product .featured-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .featured-product .featured-info {
+      width: 70%; /* Texto derecha */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-product .featured-info h2 {
+      color: #bfa14f;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .featured-product .featured-info p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin: 8px 0;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 35px;
+      background: linear-gradient(45deg, #bfa14f, #ffd700);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+      width: fit-content;
+    }
+
+    .btn-buy:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #ffd700, #bfa14f);
+    }
+
+    @media (max-width: 900px) {
+      .featured-product {
+        flex-direction: column; /* apila en móvil */
+      }
+      .featured-product .featured-image,
+      .featured-product .featured-info {
+        width: 100%;
+      }
+    }
+
+    /* GRID PRODUCTOS NORMALES */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: #fff8e7;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      max-width: 200px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card h2 {
+      color: #bfa14f;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 1.4em;
+    }
+
+    .product-card p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      margin: 5px 0;
+      text-align: center;
+    }
+
+
+.featured-product .featured-image img {
+  border: 5px solid #ffd700; /* borde dorado */
+  border-radius: 15px;
+  box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-product .featured-image img:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+.featured-product .featured-info {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 248, 231, 0.8));
+  padding: 40px;
+  border-radius: 0 20px 20px 0;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.btn-buy {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-buy:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catálogo Drop - Collares Dorados</h1>
+
+    <!-- PRODUCTO DESTACADO -->
+    <div class="featured-product">
+      <div class="featured-image">
+        <img src="img/DROP.PNG" alt="Golden Drop 18 Kt Gold Plated">
+      </div>
+      <div class="featured-info">
+        <h2>GOLDEN DROP 18 Kt GOLD PLATED</h2>
+        <p>Descubre la elegancia de los estilos Golden Drop, bañado en oro de 18 quilates. Perfecto para ocasiones especiales o para darle un toque de lujo a tu día a día.</p>
+        <p><strong>Material:</strong> Oro 18 Kt chapado</p>
+        <p><strong>Dimensiones:</strong> Ajustable, diseño elegante y moderno.</p>
+        <p><strong>Precio:</strong> $8.00</p>
+        <a href="#" class="btn-buy">Comprar Ahora</a>
+      </div>
+    </div>
+
+    <!-- GRID PRODUCTOS NORMALES -->
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="img/drop1.PNG" alt="Shine Deluxe 24 Kt Gold Plated">
+        <h2>SGD003</h2>
+        <p>Elegancia máxima con nuestra pulsera. Brillo y lujo en cada detalle.</p>
+        <p><strong>Material:</strong> Perlas Naturales</p>
+        <p><strong>Dimensiones:</strong> 18.5 cm</p>
+        <p><strong>Precio:</strong> $8.00</p>
+        <a href="#" class="btn-buy">Comprar Ahora</a>
+      </div>
+
+      <div class="product-card">
+        <img src="img/drop2.PNG" alt="Glow Elegant 18 Kt Gold Plated">
+        <h2>GD009</h2>
+        <p>Pulsera con perlas naturales, ideal para resaltar tu estilo único.</p>
+        <p><strong>Material:</strong> Perlas Naturales</p>
+        <p><strong>Dimensiones:</strong> 18.5 cm</p>
+        <p><strong>Precio:</strong> $8.00</p>
+        <a href="#" class="btn-buy">Comprar Ahora</a>
+      </div>
+
+      <div class="product-card">
+        <img src="img/drop3.PNG" alt="Luxe Star 18 Kt Gold Plated">
+        <h2>GD011</h2>
+        <p>Aretes, perfecto para destacar en cualquier evento.</p>
+        <p><strong>Material:</strong> Oro 18 Kt chapado</p>
+        <p><strong>Dimensiones:</strong> 2.1 cm</p>
+        <p><strong>Precio:</strong> $8.00</p>
+        <a href="#" class="btn-buy">Comprar Ahora</a>
+      </div>
+
+      <div class="product-card">
+        <img src="img/drop4.PNG" alt="Luna Elegant 18 Kt Gold Plated">
+        <h2>GD015</h2>
+        <p>Collar Luna Elegante, con un diseño moderno, ideal para tu estilo diario.</p>
+        <p><strong>Material:</strong> Oro 18 Kt chapado</p>
+        <p><strong>Dimensiones:</strong> 2.6 cm</p>
+        <p><strong>Precio:</strong> $6.00</p>
+        <a href="#" class="btn-buy">Comprar Ahora</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
